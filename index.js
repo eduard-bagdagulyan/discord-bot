@@ -1,6 +1,7 @@
 const fs = require('fs');
 const discord = require('discord.js');
-
+require('dotenv').config()
+console.log(process.env.DISCORD_TOKEN_BOT);
 const client = new discord.Client({ disableMentions: 'everyone' });
 
 const { Player } = require('discord-player');
@@ -36,4 +37,4 @@ for (const file of player) {
     client.player.on(file.split(".")[0], event.bind(null, client));
 };
 
-client.login(client.config.discord.token);
+client.login(process.env.DISCORD_TOKEN_BOT);
