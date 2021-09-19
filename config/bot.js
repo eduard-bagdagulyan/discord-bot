@@ -8,7 +8,7 @@ module.exports = {
     },
 
     discord: {
-        token: process.env.DISCORD_BOT_TOKEN,
+        token: process.env.DISCORD_TOKEN_BOT,
         prefix: '!',
         activity: 'Test',
     },
