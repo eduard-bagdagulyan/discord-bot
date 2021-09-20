@@ -15,5 +15,6 @@ module.exports = {
         const success = client.player.stop(message);
 
         if (success) message.channel.send(`${client.emotes.success} - Music **stopped** into this server !`);
+        client.user.setActivity('SHTAB Exoneri Hamar', {type: 'PLAYING'});
     },
 };
