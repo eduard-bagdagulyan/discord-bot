@@ -11,7 +11,7 @@ module.exports = {
     discord: {
         token: process.env.DISCORD_TOKEN_BOT,
         prefix: '!',
-        activity: 'Test',
+        activity: 'Shtab Exoneri Hamar',
     },
 
     filters: ['8D', 'gate', 'haas', 'phaser', 'treble', 'tremolo', 'vibrato', 'reverse', 'karaoke', 'flanger', 'mcompand', 'pulsator', 'subboost', 'bassboost', 'vaporwave', 'nightcore', 'normalizer', 'surrounding'],
