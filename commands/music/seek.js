@@ -1,5 +1,5 @@
-// const { player } = require('discord-player');
-// const { Client, Intents } = require('discord.js');
+const { player } = require('discord-player');
+const { Client, Intents } = require('discord.js');
 
 
 
