@@ -1,4 +1,6 @@
 const ms = require('ms');
+const Player = require('discord-player');
+global.player = new Player(client, client.config.opt.discordPlayer);
 
 module.exports = {
     name: 'seek',
