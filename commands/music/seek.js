@@ -1,22 +1,16 @@
-const ms = require('ms');
+module.export = {
+    name: "seek",
+    aliases: ["se"],
+    category: 'Music',
+    utilisation: '{prefix}seek [timecode]',
 
-module.exports = {
-    name: 'seek',
-    aliases: [],
-    utilisation: '{prefix}seek [time]',
-    voiceChannel: true,
+    execute(client, message, args) {
+        if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
 
-    async execute(client, message, args) {
-        const queue = player.getQueue(message.guild.id);
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${client.emotes.error} - You are not in the same voice channel !`);
 
-        if (!queue || !queue.playing) return message.channel.send(`No music currently playing ${message.author}... try again ? ❌`);
+        if (!args[0]) return message.channel.send(`${client.emotes.error} - Please write timecode !`);
 
-        const timeToMS = ms(args.join(' '));
-
-        if (timeToMS >= queue.current.durationMS) return message.channel.send(`The indicated time is higher than the total time of the current song ${message.author}... try again ? ❌\n*Try for example a valid time like **5s, 10s, 20 seconds, 1m**...*`);
-
-        await queue.seek(timeToMS);
-
-        message.channel.send(`Time set on the current song **${ms(timeToMS, { long: true })}** ✅`);
+        client.player.play(message, args.join(" "));
     },
-};
+}
